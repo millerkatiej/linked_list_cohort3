@@ -28,7 +28,7 @@ class LinkedListItemTest < NSS::TestCase
 
   def test_03_cant_set_self_as_next_list_item
     lli1 = LinkedListItem.new("foo")
-    assert_raise ArgumentError do
+    assert_raises ArgumentError do
       lli1.next_list_item = lli1
     end
   end
@@ -63,13 +63,13 @@ class LinkedListItemTest < NSS::TestCase
   end
 
   def test_05d_comparator_symbol
-    lli1 = LinkedListItem.new(:foo)
+    lli1 = LinkedListItem.new(:apple)
     lli2 = LinkedListItem.new("bar")
     assert lli1 > lli2
     assert lli2 < lli1
   end
 
-  def test_05e_comparator_integer_string
+  def test_05e_comparator_integer_string #shows numbers are less than strings
     lli1 = LinkedListItem.new(1)
     lli2 = LinkedListItem.new("bar")
     assert lli1 < lli2
